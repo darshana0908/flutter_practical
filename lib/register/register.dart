@@ -117,6 +117,7 @@ class _RegisterState extends State<Register> {
                   var res = await sqlDb.insertData(
                       "INSERT INTO register ('name','mobile','user_name','password') VALUES('${name.text}','${mobile.text}','${userName.text}','${password.text}')");
                   log(res.toString());
+                  Navigator.pop(context);
                   // Navigator.push(
                   //     context,
                   //     MaterialPageRoute(

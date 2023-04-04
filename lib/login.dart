@@ -104,8 +104,9 @@ class _LoginState extends State<Login> {
               ),
               TextButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const Home()));
+                    userLogin();
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => const Home()));
                     // userLogin();
                   },
                   child: Container(
@@ -144,14 +145,15 @@ class _LoginState extends State<Login> {
   }
 
   userLogin() async {
-    if (userDetails.isNotEmpty) {
-      for (int index in Iterable.generate(userDetails.length)) {
-        if (userDetails[index]['name'].toString() == name.text.toString() &&
-            userDetails[index]['password'].toString() == password.text) {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => const Home()));
-        }
-      }
+    List user = await sqlDb.readData(
+        "select * from register  where name = '${name.text}' and password = '${password.text}'  ");
+    log(user.toString());
+    if (user.isNotEmpty) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const Home()));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("incorrect password or user name")));
     }
   }
 }
