@@ -20,6 +20,7 @@ class _LoginState extends State<Login> {
   TextEditingController password = TextEditingController();
   SqlDb sqlDb = SqlDb();
   List userDetails = [];
+  List user = [];
   @override
   void initState() {
     Login();
@@ -128,7 +129,7 @@ class _LoginState extends State<Login> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Register()));
+                            builder: (context) => Register(log: Login)));
                   },
                   child: Container(
                     alignment: Alignment.center,
@@ -145,7 +146,7 @@ class _LoginState extends State<Login> {
   }
 
   userLogin() async {
-    List user = await sqlDb.readData(
+    user = await sqlDb.readData(
         "select * from register  where name = '${name.text}' and password = '${password.text}'  ");
     log(user.toString());
     if (user.isNotEmpty) {

@@ -7,7 +7,8 @@ import 'package:flutter_in/db/sqldb.dart';
 import 'package:path/path.dart';
 
 class Register extends StatefulWidget {
-  const Register({super.key});
+  const Register({super.key, required this.log});
+  final Function log;
 
   @override
   State<Register> createState() => _RegisterState();
@@ -22,7 +23,17 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: TextButton(
+            onPressed: () {
+              widget.log();
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            )),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(36.0),
         child: SingleChildScrollView(
