@@ -39,6 +39,9 @@ class _RegisterState extends State<Register> {
         child: SingleChildScrollView(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            SizedBox(
+              height: 50,
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
@@ -123,6 +126,9 @@ class _RegisterState extends State<Register> {
                     hintText: "Type hear",
                     fillColor: Colors.white70),
               ),
+            ),
+            SizedBox(
+              height: 50,
             ),
             TextButton(
                 onPressed: () async {

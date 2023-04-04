@@ -43,7 +43,7 @@ class _LoginState extends State<Login> {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               SizedBox(
-                height: 50,
+                height: 150,
               ),
               Container(
                 alignment: Alignment.center,
@@ -53,7 +53,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 50,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),

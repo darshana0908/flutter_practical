@@ -94,17 +94,19 @@ class _HomeState extends State<Home> {
       // If the server did return a 200 OK response,
       // then parse the JSON.
 
-      browserGames = jsonDecode(response.body);
-
       setState(() {
-        for (var element in gameList) {
-          if (element['platform'] == 'Browser') {
-            browserGames.add(element);
-          } else if (element['platform'] == '"PC (Windows)') {
-            pcGames.add(element);
-          }
-        }
+        browserGames = jsonDecode(response.body);
+        log(browserGames.toString());
       });
+      // setState(() {
+      //   for (var element in gameList) {
+      //     if (element['platform'] == 'Browser') {
+      //       browserGames.add(element);
+      //     } else if (element['platform'] == '"PC (Windows)') {
+      //       pcGames.add(element);
+      //     }
+      //   }
+      // });
 
       print(gameList);
 
@@ -166,12 +168,30 @@ class _HomeState extends State<Home> {
                   CategoryGame();
                   Navigator.pop(context);
                 },
-                child: const MyWidget(
-                  name: 'strategy',
+                child: InkWell(
+                  onTap: () {
+                    setState(() => selectedCategory = 'strategy');
+                    print(selectedCategory);
+
+                    CategoryGame();
+                    Navigator.pop(context);
+                  },
+                  child: const MyWidget(
+                    name: 'strategy',
+                  ),
                 ),
               ),
-              const MyWidget(
-                name: 'racing',
+              InkWell(
+                onTap: () {
+                  setState(() => selectedCategory = 'racing');
+                  print(selectedCategory);
+
+                  CategoryGame();
+                  Navigator.pop(context);
+                },
+                child: const MyWidget(
+                  name: 'racing',
+                ),
               ),
               InkWell(
                 onTap: () {
