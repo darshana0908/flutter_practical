@@ -70,6 +70,7 @@ class _RegisterState extends State<Register> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
+                keyboardType: TextInputType.number,
                 controller: mobile,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(

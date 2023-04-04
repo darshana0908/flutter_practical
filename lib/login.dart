@@ -53,7 +53,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -77,7 +77,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 15,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
